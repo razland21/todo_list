@@ -15,7 +15,7 @@ def add_to_list(my_list, location=1):
 	list_item = raw_input("What would you like to add to the list? ")
 	if location.isdigit():
 		location = int(location)
-		if location <= len(my_list):
+		if location <= len(my_list)+1:
 			my_list.insert(location-1, list_item)
 		else:
 			print "That location is larger than the number of items in the list! Adding task to end of list."
@@ -42,6 +42,27 @@ def delete_first_item(my_list):
 		print "You are deleting " + my_list[0]
 		del my_list[0]
 
+def edit_item(my_list):
+	print "Here is the existing list.  Enter the number of the task you want to edit."
+	view_list(my_list)
+	
+	while True:
+		location = raw_input(">> ").strip()
+		if not location.isdigit():
+			print "That is not a valid input.  Please try again."
+			continue
+		elif int(location) > len(my_list):
+			print "That item does not exist.  Please try again."
+			continue
+		else:
+			change = raw_input("What would you like to change that item to? \n>>")
+			my_list[int(location)-1] = change
+			break
+	
+	print "Here is the new list."
+	view_list(my_list)
+	
+	
 
 def display_main_menu(my_list):
     """Displays main options, takes in user input, and calls view or add function."""
@@ -51,25 +72,29 @@ def display_main_menu(my_list):
     A. Add a new item
     B. View list
     C. Delete first item in list
-    D. Quit the program
+    D. Edit item in list
+    E. Quit the program
      """
 
+	 
     while True:
         # Collect input and include your if/elif/else statements here.
-        print user_options
-        user_input = raw_input(">>> ").upper()
+		print user_options
+		user_input = raw_input(">>> ").upper()
 
-        if user_input == "A":
-			location = raw_input("What order in the list should this be? Put 1 for first item and last for last item: ")
+		if user_input == "A":
+			location = raw_input("What order in the list should this be? Type 1 for first item and last for last item: ")
 			add_to_list(my_list, location.strip())
-        elif user_input == "B":
-            view_list(my_list)
-        elif user_input == "C":
-            delete_first_item(my_list)
-        elif user_input == "D":
-            break
-        else:
-            print "Sorry, I don't know what you mean.  Please try again."
+		elif user_input == "B":
+			view_list(my_list)
+		elif user_input == "C":
+			delete_first_item(my_list)
+		elif user_input == "D":
+			edit_item(my_list)
+		elif user_input == "E":
+			break
+		else:
+			print "Sorry, I don't know what you mean.  Please try again."
 
     
 
