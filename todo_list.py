@@ -25,6 +25,10 @@ def view_list(my_list):
     for item in my_list:
         print item
 
+def delete_first_item(my_list):
+    print "You are deleting " + my_list[0]
+    del my_list[0]
+
 
 def display_main_menu(my_list1):
     """Displays main options, takes in user input, and calls view or add function."""
@@ -33,7 +37,8 @@ def display_main_menu(my_list1):
     \nWould you like to:
     A. Add a new item
     B. View list
-    C. Quit the program
+    C. Delete first item in list
+    D. Quit the program
      """
 
     while True:
@@ -44,8 +49,10 @@ def display_main_menu(my_list1):
         if user_input == "A":
             add_to_list(my_list1)
         elif user_input == "B":
-            view_list(my_list)
+            view_list(my_list1)
         elif user_input == "C":
+            delete_first_item(my_list1)
+        elif user_input == "D":
             break
         else:
             print "Sorry, I don't know what you mean.  Please try again."
