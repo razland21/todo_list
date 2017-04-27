@@ -12,7 +12,11 @@ You can run the script in your Terminal at any time using the command:
 def add_to_list(my_list):
     """Takes user input and adds it as a new item to the end of the list."""
 
-    print "The add_to_list function has not yet been written"
+    list_item = raw_input("What would you like to add to the list? ")
+    my_list.append(list_item)
+
+    print my_list
+    return my_list
 
 
 def view_list(my_list):
