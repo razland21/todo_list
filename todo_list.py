@@ -15,17 +15,18 @@ def add_to_list(my_list):
     list_item = raw_input("What would you like to add to the list? ")
     my_list.append(list_item)
 
-    print my_list
-    return my_list
+#    print my_list
+#    return my_list
 
 
 def view_list(my_list):
     """Print each item in the list."""
 
-    print "The view_list function has not yet been written"
+    for item in my_list:
+        print item
 
 
-def display_main_menu(my_list):
+def display_main_menu(my_list1):
     """Displays main options, takes in user input, and calls view or add function."""
 
     user_options = """
@@ -38,13 +39,13 @@ def display_main_menu(my_list):
     while True:
         # Collect input and include your if/elif/else statements here.
         print user_options
-        user_input = raw_input(">>> ")
+        user_input = raw_input(">>> ").upper()
 
-        if user_input.upper() == "A":
-            add_to_list(my_list)
-        elif user_input.upper() == "B":
+        if user_input == "A":
+            add_to_list(my_list1)
+        elif user_input == "B":
             view_list(my_list)
-        elif user_input.upper() == "C":
+        elif user_input == "C":
             break
         else:
             print "Sorry, I don't know what you mean.  Please try again."
