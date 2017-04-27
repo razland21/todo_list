@@ -40,11 +40,11 @@ def display_main_menu(my_list):
         print user_options
         user_input = raw_input(">>> ")
 
-        if user_input == "A":
+        if user_input.upper() == "A":
             add_to_list(my_list)
-        elif user_input == "B":
+        elif user_input.upper() == "B":
             view_list(my_list)
-        elif user_input == "C":
+        elif user_input.upper() == "C":
             break
         else:
             print "Sorry, I don't know what you mean.  Please try again."
