@@ -39,10 +39,15 @@ def check_duplicate(list_item, my_list):
 	return False
 
 def view_list(my_list):
-    """Print each item in the list."""
-
-    for item in my_list:
-        print str(my_list.index(item)+1) + ". " + item
+	"""Print each item in the list."""
+	view_ordered = raw_input("Do you want to view the list in alphabetical order? Type 'yes' if so. \n>>").strip().lower()
+	print_list = list(my_list)
+	
+	if view_ordered == "yes":
+		print_list.sort()
+		
+	for item in print_list:
+		print str(print_list.index(item)+1) + ". " + item
 
 def delete_first_item(my_list):
 	if len(my_list) == 0:
