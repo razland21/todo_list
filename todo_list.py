@@ -23,7 +23,7 @@ def view_list(my_list):
     """Print each item in the list."""
 
     for item in my_list:
-        print item
+        print my_list.index(item)+1 + ". " + item
 
 def delete_first_item(my_list):
     print "You are deleting " + my_list[0]
