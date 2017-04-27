@@ -12,8 +12,11 @@ You can run the script in your Terminal at any time using the command:
 def add_to_list(my_list, location=1):
 	"""Takes user input and adds it as a new item to the end of the list."""
 	
-	list_item = raw_input("What would you like to add to the list? ")
-	if location.isdigit():
+	list_item = raw_input("What would you like to add to the list? ").strip()
+	
+	if check_duplicate(list_item, my_list):
+		print "That item is already in the list."
+	elif location.isdigit():
 		location = int(location)
 		if location <= len(my_list)+1:
 			my_list.insert(location-1, list_item)
@@ -28,6 +31,12 @@ def add_to_list(my_list, location=1):
 #    print my_list
 #    return my_list
 
+def check_duplicate(list_item, my_list):
+	for item in my_list:
+		if list_item.lower() == item.lower():
+			return True
+
+	return False
 
 def view_list(my_list):
     """Print each item in the list."""
